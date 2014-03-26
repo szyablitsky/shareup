@@ -1,0 +1,3 @@
+== ShareUp
+
+ShareUp is a One Page Application based on Angular.JS with Ruby on Rails Backend
