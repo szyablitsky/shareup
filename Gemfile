@@ -27,6 +27,7 @@ end
 
 group :test do
   gem 'coveralls', require: false
+  gem 'shoulda-matchers'
 end
 
 # Use ActiveModel has_secure_password
