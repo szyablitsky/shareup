@@ -1,5 +1,6 @@
 require 'spec_helper'
 
 describe User do
-  skip "add some examples to (or delete) #{__FILE__}"
+  it { is_expected.to have_many :authorizations }
+  it { is_expected.to have_many :shares }
 end

@@ -4,6 +4,6 @@ FactoryGirl.define do
   factory :user do
     id 1
     email 'user@example.com'
-    encrypted_password 'SECRET'
+    password 'password'
   end
 end
