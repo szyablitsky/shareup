@@ -13,6 +13,9 @@ gem 'uuidtools'
 gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
+gem 'angularjs-rails'
+gem 'ngmin-rails'
+gem 'bootstrap-sass'
 
 group :development do
   gem 'brakeman'

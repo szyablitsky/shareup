@@ -4,7 +4,6 @@ describe WelcomeController do
 
   describe '#index' do
     before(:each) { get :index }
-
     it { expect(response).to render_template :index }
   end
 
@@ -15,13 +14,12 @@ describe WelcomeController do
         get :dashboard
       end
 
-      it { expect(response).to render_template :dashboard }
       it { expect(response).to render_template layout: 'layouts/angular' }
     end
 
     context 'without signed in user' do
       before(:each) { get :dashboard }
-      pending { expect(response).to redirect_to :index }
+      it { expect(response).to redirect_to new_user_session_path }
     end
   end
 
