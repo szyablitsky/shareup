@@ -5,9 +5,7 @@ describe WelcomeController do
   describe '#index' do
     before(:each) { get :index }
 
-    it 'should response with success' do
-      expect(response.status).to eq(200)
-    end
+    it { expect(response).to render_template :index }
   end
 
   describe '#dashboard' do

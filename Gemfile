@@ -13,7 +13,6 @@ gem 'uuidtools'
 gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
-# gem 'therubyracer'
 
 group :development do
   gem 'brakeman'
