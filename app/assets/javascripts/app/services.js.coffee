@@ -15,3 +15,19 @@ angular.module 'myApp.services', []
           d.reject data
       d.promise
   service
+
+.factory 'Share', ($resource) ->
+  null
+
+.factory 'SessionService', ($http, $q) ->
+  service =
+    getCurrentUser: () ->
+      if service.isAuthenticated()
+        return $q.when service.currentUser
+      else
+        return $http.get('/api/current_user').then (resp) ->
+          service.currentUser = resp.data
+    currentUser: null
+    isAuthenticated: () ->
+      !!service.currentUser
+  service
