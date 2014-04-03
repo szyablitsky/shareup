@@ -1,38 +1,27 @@
 <h2>Welcome back {{ user.name }}</h2>
+<p><a href="/users/sign_out">Sign out</a></p>
 <ul>
   <li ng-repeat="article in articles | orderBy:publishedDate:false">
     <div class="article-listing row">
       <div class="col-md-10">
-        <h4>
-          <a
-            href="{{ article.link }}"
-            title="{{ article.title }}">
-            {{ article.title }}
-          </a>
-        </h2>
-        <p>
-          {{ article.publishedDate | date:'M/d/yy h:mm:ss a' }}
-        </p>
+        <h4><a href="{{ article.link }}" title="{{ article.title }}">{{ article.title }}</a></h4>
+        <p>{{ article.publishedDate | date:'M/d/yy h:mm:ss a' }}</p>
       </div>
       <div class="col-md-2">
+
         <div data-ng-hide="showShareBox">
           <a ng-click="showShareBox=!showShareBox">Share with a friend</a>
         </div>
+
         <div data-ng-show="showShareBox">
           <form name="shareForm">
             <label>Share with a friend</label>
-            <input type="text" class="form-control"
-              placeholder="email or username"
-              data-ng-model="newShare.recipient" >
-            <input type="button" class="btn btn-default"
-              value="Cancel"
-              data-ng-click="showShareBox = !showShareBox">
-            <input type="submit" class="btn btn-primary"
-              ng-click="showShareBox = !showShareBox; share()"
-              ng-disabled="shareForm.$invalid" value="Share">
+            <input type="text" placeholder="email or username" ng-model="newShare.recipient" is-user-or-email="">
+            <input type="button" class="btn" value="Cancel" data-ng-click="showShareBox = !showShareBox">
+            <input type="submit" class="btn" ng-click="showShareBox=!showShareBox;share(article)" ng-disabled="shareForm.$invalid" value="Share">
           </form>
-        </div> <!-- showShareBox -->
-      </div> <!-- commentbox -->
+        </div>
+      </div>
     </div>
   </li>
 </ul>

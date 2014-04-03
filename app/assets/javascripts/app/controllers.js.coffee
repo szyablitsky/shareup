@@ -11,10 +11,10 @@ angular.module 'myApp.controllers', []
   $scope.newShare =
     recipient: ''
 
-  $scope.share = (recipient, article) ->
+  $scope.share = (article) ->
     share = new Share
       url: article.link
       from_user: $scope.user.id
-      user: recipient
+      user: $scope.newShare.recipient
     share.$save()
     $scope.newShare.recipient = ''

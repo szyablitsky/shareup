@@ -25,7 +25,7 @@ class Api::SharesController < ApplicationController
         url: params[:url]
       }
 
-      if to_user = User.find_by_name_or_email(params[:user])
+      if to_user = User.where('name = ? or email = ?',params[:user],params[:user]).first
         share_params[:to_user_id] = to_user.id
       else
         share_params[:to_email] = params[:user]
