@@ -3,7 +3,7 @@ Shareup::Application.routes.draw do
   get '/dashboard' => 'welcome#dashboard'
 
   namespace :api do
-    resources :shares
+    resources :shares, only: [:index, :create]
   end
 
   devise_for :users,

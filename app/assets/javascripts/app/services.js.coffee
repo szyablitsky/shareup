@@ -17,7 +17,7 @@ angular.module 'myApp.services', []
   service
 
 .factory 'Share', ($resource) ->
-  null
+  share = $resource '/api/shares/:id.json', {id: '@id'}, {}
 
 .factory 'SessionService', ($http, $q) ->
   service =

@@ -1,8 +1,20 @@
 angular.module 'myApp.controllers', []
 .controller 'HomeController', ($scope, session, SessionService, ArticleService, Share) ->
+
   $scope.user = session.user
   $scope.user.name ||= $scope.user.email
-  ArticleService
-  .getLatestFeed()
+
+  ArticleService.getLatestFeed()
   .then (data) ->
     $scope.articles = data
+
+  $scope.newShare =
+    recipient: ''
+
+  $scope.share = (recipient, article) ->
+    share = new Share
+      url: article.link
+      from_user: $scope.user.id
+      user: recipient
+    share.$save()
+    $scope.newShare.recipient = ''

@@ -1,0 +1,36 @@
+class Api::SharesController < ApplicationController
+  before_filter :authenticate_user!, only: [:new, :create]
+  respond_to :json
+
+  def index
+    render json: []
+  end
+
+  def create
+    share = Share.create(share_params params)
+
+    render status: 200,
+      json: {
+        success: share.persisted?,
+        share_id: share.id
+      }
+  end
+
+  private
+
+    # candidate for sevice class
+    def share_params params
+      share_params = {
+        from_user_id: current_user.id,
+        url: params[:url]
+      }
+
+      if to_user = User.find_by_name_or_email(params[:user])
+        share_params[:to_user_id] = to_user.id
+      else
+        share_params[:to_email] = params[:user]
+      end
+
+      share_params
+    end
+end

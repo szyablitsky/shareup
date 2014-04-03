@@ -11,3 +11,12 @@
  *= require_self
  *= require_tree .
  */
+
+@import 'bootstrap';
+
+body {
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+}
