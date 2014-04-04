@@ -5,4 +5,7 @@
 [![Code Climate](https://codeclimate.com/github/szyablitsky/shareup-embedded.png)](https://codeclimate.com/github/szyablitsky/shareup-embedded)
 [![Coverage Status](https://coveralls.io/repos/szyablitsky/shareup-embedded/badge.png)](https://coveralls.io/r/szyablitsky/shareup-embedded)
 
-ShareUp is a One Page Application based on AngularJS with Ruby on Rails backend
+This repository is a Proof of Concept for One Page Application based on AngularJS with Ruby on Rails backend.
+
+This application uses Rails asset pipeline for JavaScript concatenation and minification.
+User authorisation is made on Rails side with Devise. Angular's part works only for authorized users.
