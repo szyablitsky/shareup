@@ -7,5 +7,5 @@
 
 This repository is a Proof of Concept for One Page Application based on AngularJS with Ruby on Rails backend.
 
-This application uses Rails asset pipeline for JavaScript concatenation and minification.
-User authorisation is made on Rails side with Devise. Angular's part works only for authorized users.
+It uses Rails asset pipeline for JavaScript concatenation and minification.
+User authorization is made on Rails side with Devise. Angular's part works only for authorized users.
